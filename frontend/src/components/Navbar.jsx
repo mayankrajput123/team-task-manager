@@ -4,6 +4,8 @@ function Navbar() {
 
   const navigate = useNavigate();
 
+  const token = localStorage.getItem("token");
+
   const handleLogout = () => {
 
     localStorage.removeItem("token");
@@ -37,12 +39,34 @@ function Navbar() {
         Tasks
       </Link>
 
-      <button
-        className="btn btn-danger btn-sm"
-        onClick={handleLogout}
-      >
-        Logout
-      </button>
+      {!token && (
+        <>
+          <Link
+            className="text-white me-3"
+            to="/register"
+          >
+            Register
+          </Link>
+
+          <Link
+            className="text-white me-3"
+            to="/"
+          >
+            Login
+          </Link>
+        </>
+      )}
+
+      {token && (
+
+        <button
+          className="btn btn-danger btn-sm"
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
+
+      )}
 
     </div>
 
