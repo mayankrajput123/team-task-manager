@@ -60,11 +60,14 @@ function Navbar() {
       {token && (
 
         <button
-          className="btn btn-danger btn-sm"
-          onClick={handleLogout}
-        >
-          Logout
-        </button>
+className="btn btn-danger ms-2"
+onClick={()=>{
+  localStorage.removeItem("token");
+  window.location.href="/";
+}}
+>
+Logout
+</button>
 
       )}
 
