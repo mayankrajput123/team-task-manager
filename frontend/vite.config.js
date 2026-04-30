@@ -2,11 +2,13 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [react],
+
+  plugins: [react()],   // ✅ MUST be react()
 
   preview: {
-    host: "0.0.0.0",
+    host: true,
     port: process.env.PORT || 5173,
-    allowedHosts: ["team-task-manager-production-032e.up.railway.app"]
+    allowedHosts: "all"
   }
+
 })
